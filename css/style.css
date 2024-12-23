@@ -266,19 +266,36 @@ textarea#userInput:focus {
 }
 
 .cyber-select {
-    padding: 0.5rem;
+    width: 100%;
+    padding: 0.8rem;
     background: var(--input-bg);
     border: 1px solid var(--primary-color);
-    border-radius: 4px;
+    border-radius: 8px;
     color: var(--text-color);
-    font-size: 1rem;
-    min-width: 200px;
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     cursor: pointer;
+    position: relative;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff69b4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.2em;
+    padding-right: 2.5rem;
 }
 
-.cyber-select option, .cyber-select optgroup {
+.cyber-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 18, 79, 0.3);
+}
+
+.cyber-select option {
     background: var(--panel-bg);
     color: var(--text-color);
+    padding: 0.8rem;
+    font-size: 16px;
 }
 
 /* 滑块样式 */
@@ -1217,5 +1234,89 @@ audio {
 
     .slider-container {
         padding: 1rem 0;
+    }
+}
+
+/* 下拉框样式优化 */
+.cyber-select {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--input-bg);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    position: relative;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff69b4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.2em;
+    padding-right: 2.5rem;
+}
+
+.cyber-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(255, 18, 79, 0.3);
+}
+
+.cyber-select option {
+    background: var(--panel-bg);
+    color: var(--text-color);
+    padding: 0.8rem;
+    font-size: 16px;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .cyber-select {
+        font-size: 16px;
+        padding: 0.8rem;
+        margin: 0.5rem 0;
+        min-height: 44px; /* iOS 最小点击区域 */
+        max-width: 100%;
+        border-radius: 8px;
+    }
+
+    .cyber-select option {
+        font-size: 16px;
+        padding: 1rem;
+    }
+    
+    /* 确保下拉框在 iOS 上可以正常工作 */
+    select::-ms-expand {
+        display: none;
+    }
+    
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+}
+
+/* iOS 特定优化 */
+@supports (-webkit-touch-callout: none) {
+    .cyber-select {
+        background-color: var(--input-bg);
+        opacity: 1;
+        z-index: 1;
+        position: relative;
+    }
+    
+    .cyber-select:disabled {
+        opacity: 0.5;
+    }
+}
+
+/* 触摸设备优化 */
+@media (hover: none) {
+    .cyber-select {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
     }
 }
