@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ff9ecd">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="宝宝的陪伴播客">
+    <meta name="format-detection" content="telephone=no">
+    <title>宝宝的陪伴播客</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cyber-background">
+        <div class="cyber-grid"></div>
+        <div class="cyber-lines"></div>
+        <div class="cyber-particles"></div>
+    </div>
+
+    <div class="container">
+        <header class="cyber-header">
+            <div class="logo-container">
+                <div class="cyber-logo">
+                    <div class="logo-hex"></div>
+                    <span>♥</span>
+                </div>
+                <h1>宝宝的陪伴播客</h1>
+            </div>
+            <div class="cyber-subtitle">
+                <span class="typing-text">用爱与温暖陪伴每一刻</span>
+                <div class="cyber-scanner"></div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="podcast-controls cyber-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span class="heart-icon">♥</span>
+                        温暖陪伴
+                    </div>
+                    <div class="panel-status">
+                        <div class="status-indicator"></div>
+                        状态: <span class="status-ready">准备好了</span>
+                    </div>
+                </div>
+
+                <div class="two-column-layout">
+                    <div class="left-column">
+                        <div class="input-section">
+                            <div class="quick-buttons">
+                                <button class="cyber-quick-button" data-topic="不开心了">
+                                    <span class="button-content">
+                                        <span class="button-icon">💝</span>
+                                        不开心了
+                                    </span>
+                                </button>
+                                <button class="cyber-quick-button" data-topic="想宝宝了">
+                                    <span class="button-content">
+                                        <span class="button-icon">👶</span>
+                                        想宝宝了
+                                    </span>
+                                </button>
+                                <button class="cyber-quick-button" data-topic="受委屈了">
+                                    <span class="button-content">
+                                        <span class="button-icon">💔</span>
+                                        受委屈了
+                                    </span>
+                                </button>
+                                <button class="cyber-quick-button" data-topic="不知道做什么了">
+                                    <span class="button-content">
+                                        <span class="button-icon">🤔</span>
+                                        不知道做什么了
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="cyber-input-group">
+                                <label class="cyber-label">
+                                    <span class="label-icon">✨</span>
+                                    输入主题
+                                </label>
+                                <textarea id="userInput" placeholder="说说你的心里话..."></textarea>
+                            </div>
+                            
+                            <div class="controls-grid">
+                                <div class="cyber-input-group duration-control">
+                                    <label class="cyber-label" for="duration">
+                                        <span class="label-icon">🎵</span>
+                                        播放时长
+                                    </label>
+                                    <div class="control-wrapper">
+                                        <select id="duration" class="cyber-select">
+                                            <option value="3">3分钟</option>
+                                            <option value="5">5分钟</option>
+                                            <option value="10">10分钟</option>
+                                            <option value="15">15分钟</option>
+                                            <option value="custom">自定义</option>
+                                        </select>
+                                        <input type="number" id="customDuration" class="cyber-input" min="1" max="60" placeholder="自定义时长" style="display: none;">
+                                    </div>
+                                </div>
+
+                                <div class="cyber-input-group style-control">
+                                    <label class="cyber-label" for="style">
+                                        <span class="label-icon">🎭</span>
+                                        播讲风格
+                                    </label>
+                                    <select id="style" class="cyber-select">
+                                        <optgroup label="专业类">
+                                            <option value="academic">学术演讲</option>
+                                            <option value="professional">专业解说</option>
+                                            <option value="news">新闻播报</option>
+                                            <option value="documentary">纪录片风格</option>
+                                        </optgroup>
+                                        <optgroup label="教育类">
+                                            <option value="educational">教育讲解</option>
+                                            <option value="children">儿童教育</option>
+                                            <option value="tutorial">教程指导</option>
+                                        </optgroup>
+                                        <optgroup label="娱乐类">
+                                            <option value="storytelling">故事叙述</option>
+                                            <option value="casual">轻松闲聊</option>
+                                            <option value="comedy">幽默诙谐</option>
+                                            <option value="drama">戏剧风格</option>
+                                        </optgroup>
+                                        <optgroup label="情感类">
+                                            <option value="emotional">感性抒情</option>
+                                            <option value="motivational">激励演讲</option>
+                                            <option value="meditation">冥想引导</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="voice-control cyber-panel">
+                                <h3 class="cyber-panel-title">
+                                    <span class="hex-icon"></span>
+                                    语音参数控制台
+                                </h3>
+                                <div class="voice-params">
+                                    <div class="param-group">
+                                        <label class="cyber-label" for="voiceSelect">
+                                            <span class="label-icon">🎙</span>
+                                            语音选择
+                                        </label>
+                                        <select id="voiceSelect" class="cyber-select"></select>
+                                    </div>
+                                    <div class="params-grid">
+                                        <div class="param-group">
+                                            <label class="cyber-label" for="speed">
+                                                <span class="label-icon">⚡</span>
+                                                语速控制
+                                                <span class="param-value">1.0</span>
+                                            </label>
+                                            <div class="slider-container">
+                                                <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1">
+                                            </div>
+                                        </div>
+                                        <div class="param-group">
+                                            <label class="cyber-label" for="pitch">
+                                                <span class="label-icon">🎵</span>
+                                                音调控制
+                                                <span class="param-value">1.0</span>
+                                            </label>
+                                            <div class="slider-container">
+                                                <input type="range" id="pitch" min="0.5" max="2" step="0.1" value="1">
+                                            </div>
+                                        </div>
+                                        <div class="param-group">
+                                            <label class="cyber-label" for="emotion">
+                                                <span class="label-icon">💫</span>
+                                                情感强度
+                                                <span class="param-value">50</span>
+                                            </label>
+                                            <div class="slider-container">
+                                                <input type="range" id="emotion" min="0" max="100" step="1" value="50">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="generate-button-container">
+                                <button id="generateBtn" class="cyber-button">
+                                    <span class="button-content">
+                                        <span class="button-icon">🤖</span>
+                                        生成暖心内容
+                                    </span>
+                                    <span class="button-glitch"></span>
+                                    <span class="button-scanner"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-column">
+                        <div class="player-section">
+                            <div class="cyber-player">
+                                <div class="player-header">
+                                    <span class="heart-icon">♥</span>
+                                    温暖播放器
+                                </div>
+                                <div class="audio-player">
+                                    <div class="player-controls">
+                                        <button id="playPauseBtn" class="control-btn">
+                                            <span class="play-icon">▶</span>
+                                            <div class="btn-ripple"></div>
+                                        </button>
+                                        <div class="time-display">
+                                            <span id="currentTime">00:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="audio-visualizer">
+                                    <canvas id="visualizer"></canvas>
+                                    <div class="visualizer-overlay"></div>
+                                </div>
+                                <audio id="audio" style="display: none;"></audio>
+                            </div>
+                            <div class="transcript cyber-panel" id="transcript">
+                                <div class="transcript-header">
+                                    <span class="hex-icon"></span>
+                                    文本输出
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="cyber-footer">
+            <div class="footer-content">
+                <div class="cyber-line"></div>
+                <p>用❤️制作 by <a href="https://cy.waryts.com" target="_blank">爱你的老公</a></p>
+                <div class="cyber-line"></div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html> 
