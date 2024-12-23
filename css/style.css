@@ -1320,3 +1320,155 @@ audio {
         -webkit-tap-highlight-color: transparent;
     }
 }
+
+/* 移动端语音选择优化 */
+@media (max-width: 768px) {
+    .voice-params {
+        position: relative;
+        z-index: 100;
+    }
+
+    .param-group {
+        position: relative;
+        z-index: 100;
+    }
+
+    #voiceSelect {
+        position: relative;
+        z-index: 100;
+        width: 100%;
+        height: 44px;
+        padding: 0 30px 0 10px;
+        font-size: 16px;
+        border: 1px solid var(--primary-color);
+        border-radius: 8px;
+        background-color: var(--input-bg);
+        color: var(--text-color);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff69b4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        background-size: 16px;
+    }
+
+    #voiceSelect:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 10px rgba(255, 18, 79, 0.3);
+    }
+
+    #voiceSelect option {
+        font-size: 16px;
+        padding: 12px;
+        background-color: var(--panel-bg);
+        color: var(--text-color);
+    }
+
+    /* 确保下拉框在其他元素之上 */
+    .voice-control {
+        position: relative;
+        z-index: 100;
+    }
+
+    /* 修复iOS上的特定问题 */
+    @supports (-webkit-touch-callout: none) {
+        #voiceSelect {
+            opacity: 1;
+            background-color: var(--input-bg);
+        }
+        
+        #voiceSelect:focus {
+            background-color: var(--input-bg);
+        }
+    }
+}
+
+/* 确保下拉框在滚动时保持可见 */
+.voice-control {
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+}
+
+/* 移动端语音选择的额外优化 */
+@media (max-width: 768px) {
+    .voice-control {
+        isolation: isolate;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .voice-params {
+        position: relative;
+        z-index: 1000;
+    }
+
+    .param-group {
+        position: relative;
+        z-index: 1000;
+        margin-bottom: 1.5rem;
+    }
+
+    #voiceSelect {
+        position: relative;
+        z-index: 1000;
+        width: 100%;
+        height: 44px;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
+        background-color: var(--input-bg);
+        color: var(--text-color);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        cursor: pointer;
+        margin: 5px 0;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff69b4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 8px center;
+        background-size: 16px;
+        touch-action: manipulation;
+    }
+
+    #voiceSelect:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 10px rgba(255, 18, 79, 0.3);
+    }
+
+    #voiceSelect option {
+        font-size: 16px;
+        padding: 12px;
+        background-color: var(--panel-bg);
+        color: var(--text-color);
+        min-height: 44px;
+    }
+
+    /* 修复iOS上的特定问题 */
+    @supports (-webkit-touch-callout: none) {
+        #voiceSelect {
+            opacity: 1 !important;
+            -webkit-appearance: none;
+            background-color: var(--input-bg);
+            transform: translateZ(0);
+        }
+        
+        #voiceSelect:focus {
+            background-color: var(--input-bg);
+        }
+    }
+
+    /* 确保选择框在点击时不会被其他元素遮挡 */
+    .voice-control:focus-within {
+        z-index: 2000;
+    }
+}
+
+/* 移除任何可能影响点击的干扰元素 */
+.cyber-panel, .cyber-player, .input-section {
+    pointer-events: auto;
+}
